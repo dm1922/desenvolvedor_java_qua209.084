@@ -34,7 +34,7 @@ System.out.println("Idade:" + idade);
 System.out.println("Altura: " + altura + " metros");
 System.out.println("Email: " + email);
 
-d//fecha objeto
+//fecha objeto
 sc.close();
 
     }
