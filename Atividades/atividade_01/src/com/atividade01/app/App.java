@@ -6,8 +6,10 @@ public class App {
     public static void main(String[] args) throws Exception {
 
         String nome;
+        String result;
         double altura;
         double peso;
+        double imc;
 
         Scanner sc = new Scanner(System.in);
 
@@ -18,23 +20,20 @@ public class App {
         System.out.println("Informe seu peso, em quilogramas (exemplo: 81,5 kg): ");
         peso = sc.nextDouble();
 
-        double imc = peso / (altura * altura);
+        imc = peso / (altura * altura);
 
-        if (imc < 18.5) {
-            System.out.println(nome + " está com baixo peso.");
-        } else if (imc >= 25 && imc <= 29.9) {
-            System.out.println(nome + " está sobrepeso.");
-        } else if (imc >= 30 && imc <= 34.9) {
-            System.out.println(nome + " está com obesidade nível 1.");
-        } else if (imc >= 35 && imc <= 39.9) {
-            System.out.println(nome + " está com obesidade nível 2.");
-        } else if (imc > 40) {
-            System.out.println(nome + " está com obesidade nível 3.");
-        }
-        else if (imc >= 18.6 && imc <= 24.9) {
-            System.out.println(nome + " está com o peso normal.");
+        // mostrar o IMC para o usuário
+        System.out.println(nome + " seu IMC é " + String.format("%.2f", imc) + ".");
 
-        }
-        sc.close();
+        // saída de dados (correção)
+        result = (imc < 18.5) ? " está abaixo do peso."
+                : (imc < 25) ? " está no peso ideal."
+                        : (imc < 30) ? " está acima do peso."
+                                : (imc < 35) ? " está obeso."
+                                        : (imc < 40) ? " está com obesidade nível II." : " está com obesidade mórbida.";
+System.out.println(result);
+        
+sc.close();
     }
+
 }
